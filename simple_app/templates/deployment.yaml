@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ include "simple_app.fullname" . }}
+  labels:
+    app: {{ include "simple_app.fullname" . }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ include "simple_app.fullname" . }}
+  template:
+    metadata:
+      labels:
+        app: {{ include "simple_app.fullname" . }}
+    spec:
+      containers:
+        - name: {{ include "simple_app.fullname" . }}
+          image: k8s.gcr.io/pause:latest
+
