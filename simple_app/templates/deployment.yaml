@@ -10,10 +10,12 @@ spec:
   selector:
     matchLabels:
       app: {{ include "simple_app.fullname" . }}
+      qovery.com/service-id: {{ .Values.serviceId }}
   template:
     metadata:
       labels:
         app: {{ include "simple_app.fullname" . }}
+        qovery.com/service-id: {{ .Values.serviceId }}
     spec:
       containers:
         - name: {{ include "simple_app.fullname" . }}
