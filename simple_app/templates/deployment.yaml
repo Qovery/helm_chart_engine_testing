@@ -4,6 +4,7 @@ metadata:
   name: {{ include "simple_app.fullname" . }}
   labels:
     app: {{ include "simple_app.fullname" . }}
+    qovery.com/service-id: {{ .Values.serviceId }}
 spec:
   replicas: 1
   selector:
