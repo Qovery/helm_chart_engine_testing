@@ -1,0 +1,26 @@
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.service2.name }}
+  namespace: {{ .Values.service2.namespace }}
+  labels:
+    app: {{ .Values.service2.name  }}
+    qovery.com/service-id: {{ .Values.serviceId }}
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: {{ .Values.service2.name }}
+      qovery.com/service-id: {{ .Values.serviceId }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.service2.name }}
+        qovery.com/service-id: {{ .Values.serviceId }}
+    spec:
+      containers:
+      - name: {{ .Values.service2.name }}
+        image: nginx:latest
+        ports:
+        - containerPort: {{ .Values.service2.port }}

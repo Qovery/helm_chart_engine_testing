@@ -1,0 +1,10 @@
+service1:
+  name: inner-namespace-service1
+  port: 8080
+
+service2:
+  name: outside-namespace-service2
+  namespace: extra-namespace2
+  port: 8080
+
+serviceId: uuid
